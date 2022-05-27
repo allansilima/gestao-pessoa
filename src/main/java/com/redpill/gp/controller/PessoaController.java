@@ -46,7 +46,7 @@ public class PessoaController {
 	}
 
 	@ApiOperation(value = "Pesquisar pessoa por identificador CPF/CNPJ")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Pesquisa realizadao com sucesso"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Pesquisa realizada com sucesso"),
 			@ApiResponse(code = 400, message = "Erro ao tentar pesquisar o registro"),
 			@ApiResponse(code = 404, message = "Recurso não encontrado"),
 			@ApiResponse(code = 500, message = "Erro no servidor ao processar requisição") })
@@ -58,7 +58,7 @@ public class PessoaController {
 	}
 
 	@ApiOperation(value = "Pesquisar todas pessoas")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Pesquisa realizadao com sucesso"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Pesquisa realizada com sucesso"),
 			@ApiResponse(code = 400, message = "Erro ao tentar pesquisar o registro"),
 			@ApiResponse(code = 404, message = "Recurso não encontrado"),
 			@ApiResponse(code = 500, message = "Erro no servidor ao processar requisição") })
