@@ -32,7 +32,7 @@ public class PessoaServiceTest {
 	
     @Test
     @DisplayName("Quando criar pessoa com identificador existente")
-    public void create_whenIdenticationExists_thenCaeNotFoundExceptionAsExpected() {
+    public void create_whenIdenticationExists_thenBusinessExceptionAsExpected() {
         Pessoa pessoaMock = PessoaMock.create();
 
         when(repository.findByIdentificador(pessoaMock.getIdentificador())).thenReturn(Optional.of(pessoaMock));
@@ -46,7 +46,7 @@ public class PessoaServiceTest {
     }	
 
     @Test
-    @DisplayName("Quando criar pessoa com identificador existente")
+    @DisplayName("Quando criar pessoa com sucesso")
     public void create_whenIdenticationNotExists_thenResultAsExpected() {
         Pessoa pessoaMock = PessoaMock.create();
 
