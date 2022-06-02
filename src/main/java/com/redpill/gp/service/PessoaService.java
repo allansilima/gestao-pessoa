@@ -28,7 +28,7 @@ public class PessoaService {
 		return pessoaRepository.save(pessoa);
 	}
 
-	public Pessoa findByIdentificador(Long identificador) {
+	public Pessoa findByIdentificador(String identificador) {
 		return pessoaRepository.findByIdentificador(identificador)
 				.orElseThrow(() -> new BusinessException(HttpStatus.NOT_FOUND, Constants.IDENTIFICADOR_NAO_ENCONTRADO));
 	}
@@ -37,7 +37,7 @@ public class PessoaService {
 		return pessoaRepository.findAll();
 	}
 
-	private boolean existeIdentificador(Long identificador) {
+	private boolean existeIdentificador(String identificador) {
 		return pessoaRepository.findByIdentificador(identificador).isPresent();
 	}
 }

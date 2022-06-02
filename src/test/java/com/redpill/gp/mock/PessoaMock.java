@@ -7,7 +7,7 @@ public class PessoaMock {
 	public static Pessoa create() {
 		return Pessoa.builder()
 				.codigo(1L).nome("Teste")
-				.identificador(12345678901L)
+				.identificador("12345678901")
 				.build();
 	}
 }

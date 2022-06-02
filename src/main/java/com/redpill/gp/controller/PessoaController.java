@@ -51,7 +51,7 @@ public class PessoaController {
 			@ApiResponse(code = 404, message = "Recurso não encontrado"),
 			@ApiResponse(code = 500, message = "Erro no servidor ao processar requisição") })
 	@GetMapping
-	public ResponseEntity<Pessoa> findByIdentificador(@RequestParam(required = true) Long identificador) {
+	public ResponseEntity<Pessoa> findByIdentificador(@RequestParam(required = true) String identificador) {
 		var pessoa = service.findByIdentificador(identificador);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(pessoa);

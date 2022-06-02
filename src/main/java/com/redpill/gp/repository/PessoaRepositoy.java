@@ -10,6 +10,6 @@ import com.redpill.gp.domain.Pessoa;
 @Repository
 public interface PessoaRepositoy extends JpaRepository<Pessoa, Long> {
 	
-	public Optional<Pessoa> findByIdentificador(Long identificador);
+	public Optional<Pessoa> findByIdentificador(String identificador);
 
 }

@@ -45,24 +45,23 @@ public class Pessoa implements Serializable {
 
 	@Column(name = "identificador", length = 14)
 	@NotNull(message = "Identificador é obrigatório")
-	private Long identificador;
+	private String identificador;
 
 	@NotNull(message = "Tipo identificador é obrigatório")
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_identificador")
 	private TipoIdentificadorEnum tipoIdentificador;
 
-
-	public static Pessoa create(String nome, Long identificador) {
-		var digIdentificador = identificador.toString().length();
-		
-		switch (digIdentificador) {
-		case 11:
-			return Pessoa.builder().nome(nome).identificador(identificador).tipoIdentificador(TipoIdentificadorEnum.CPF).build();
-		case 14:
-			return Pessoa.builder().nome(nome).identificador(identificador).tipoIdentificador(TipoIdentificadorEnum.CNPJ).build();
-		default:
+	
+	public static Pessoa create(String nome, String identificador) {
+		if (!identificador.matches("^\\d{11,14}+$")) {
 			throw new BusinessException(HttpStatus.BAD_REQUEST, Constants.IDENTIFICADOR_TAMANHO);
 		}
+
+		return Pessoa.builder()
+				.nome(nome)
+				.identificador(identificador)
+				.tipoIdentificador(identificador.length() == 11 ? TipoIdentificadorEnum.CPF : TipoIdentificadorEnum.CNPJ)
+				.build();
 	}
 }

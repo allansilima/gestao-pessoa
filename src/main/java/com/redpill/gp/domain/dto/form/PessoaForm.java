@@ -1,7 +1,6 @@
 package com.redpill.gp.domain.dto.form;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
@@ -16,6 +15,6 @@ public class PessoaForm {
 	private String nome;
 
 	@ApiModelProperty(value = "Identificador CPF/CNPJ", required = true, example = "12345678900")
-	@NotNull(message = "Identificador é obrigatório")
-	private Long identificador;
+	@NotEmpty(message = "Identificador é obrigatório")
+	private String identificador;
 }
